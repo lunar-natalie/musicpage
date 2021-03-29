@@ -2,7 +2,7 @@ The Music Library
 
 A webpage focused on music.
 
-# Prerequesites
+# Prerequisites
 
 `npm`
 
