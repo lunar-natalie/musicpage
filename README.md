@@ -1,4 +1,4 @@
-The Music Library
+## The Music Library
 
 A webpage focused on music.
 

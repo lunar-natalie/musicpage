@@ -1,52 +1,14 @@
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
+$.getJSON('resources/albums.json', (data) => {
+    for (var key in data) {
+        const div = document.createElement('div');
+        div.className = 'album';
 
-const port = 8000;
-http.createServer((req, res) => {
-    var filePath = '.' + req.url;
-    if (filePath == './')
-        filePath = './index.html';
+        const img = document.createElement('img');
+        const info = data[key].info;
+        img.className = 'cover';
+        img.src = 'resources/albums/' + key + '/cover.jpg';
+        div.appendChild(img);
 
-    const extname = path.extname(filePath);
-    var contentType = 'text/html';
-    switch (extname) {
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.css':
-            contentType = 'text/css';
-            break;
-        case '.json':
-            contentType = 'application/json';
-            break;
-        case '.png':
-            contentType = 'image/png';
-            break;      
-        case '.jpg':
-            contentType = 'image/jpg';
-            break;
-        case '.wav':
-            contentType = 'audio/wav';
-            break;  
+        $('.inner').append(div);
     }
-
-    fs.readFile(filePath, (err, data) => {
-        if (err) {
-            if (err.code == 'ENOENT') {
-                fs.readFile('./404.html', (err, data) => {
-                    res.writeHead(200, { 'Content-Type': contentType });
-                    res.end(data, 'utf-8');
-                });
-            } else {
-                res.writeHead(500);
-                res.end('Encountered error '+err.code+'. Check with the page administrator.');
-            }
-        } else {
-            res.writeHead(200, { 'Content-Type': contentType });
-            res.end(data, 'utf-8');
-        }
-    });
-}).listen(port);
-
-console.log('Server started at port '+port+'.');
+});

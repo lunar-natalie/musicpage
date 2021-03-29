@@ -19,7 +19,7 @@ h1 {
     font-size: large;
 }
 
-tabbar {
+.tabbar {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
@@ -35,6 +35,10 @@ a.tab {
     color: black;
     cursor: pointer;
     text-decoration: none;
+}
+
+.album:active {
+    backdrop-filter: blur(5px);
 }
 
 .cover {
