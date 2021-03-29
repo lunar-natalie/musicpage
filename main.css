@@ -1,0 +1,51 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 8px;
+}
+
+.header {
+    margin-bottom: 16px;
+}
+
+.inner {
+    padding: 20px;
+}
+
+h1 {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 8px;
+    font-size: large;
+}
+
+tabbar {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 8px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+    font-size: small;
+}
+
+a.tab {
+    float: left;
+    padding: 8px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cover {
+    height: 250px;
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 30px rgb(124, 124, 124);
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.cover:hover {
+    transform: scale(1.1);
+}
