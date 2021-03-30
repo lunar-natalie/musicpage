@@ -6,8 +6,16 @@ A webpage focused on music.
 
 `npm`
 
-# Running
+# Building
 
 `npm i`
 
+`npm run build`
+
+# Running
+
 `npm start`
+
+# Building and Running in Realtime
+
+`npm run watch`

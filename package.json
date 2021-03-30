@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "build": "tsc",
+    "build-watch": "tsc -watch",
+    "start": "node server.js",
+    "watch": "npm run build-watch & npm start"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,8 @@
     "http": "^0.0.1-security",
     "jquery": "^3.6.0",
     "nodejs": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
   }
 }

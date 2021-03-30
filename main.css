@@ -3,10 +3,6 @@
     margin: 8px;
 }
 
-.header {
-    margin-bottom: 16px;
-}
-
 .inner {
     padding: 20px;
 }
@@ -37,19 +33,58 @@ a.tab {
     text-decoration: none;
 }
 
-.album:active {
-    backdrop-filter: blur(5px);
+.album {
+    width: 250px;
+    height: 250px;
+    margin: 16px;
+    float: left;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 2px 2px 30px rgb(124, 124, 124);
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.album.inactive {
+    transition: transform .5s, width .5s;
+}
+
+.album.inactive:hover {
+    transform: scale(1.1);
+}
+
+.album.active {
+    width: 500px;
+    transform: scale(1.1);
+    transition: width .5s;
 }
 
 .cover {
     height: 250px;
-    margin: 16px;
     border-radius: 8px;
-    box-shadow: 2px 2px 30px rgb(124, 124, 124);
-    cursor: pointer;
-    transition: transform .5s;
 }
 
-.cover:hover {
-    transform: scale(1.1);
+.text {
+    padding: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: small;
+}
+
+.text.active {
+    animation: fadeIn .5s;
+}
+
+.text.inactive {
+    animation: fadeOut .5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
