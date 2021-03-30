@@ -1,14 +1,17 @@
 {
     "Korn-Korn-1994": {
-        "name": "Korn - Korn [1994]",
-        "info": "The nu metal band's debut album explores frontman Jon Davis' rough early life."
+        "artist": "Korn",
+        "album": "Korn",
+        "year": "1994"
     },
     "Korn-LifeIsPeachy-1996": {
-        "name": "Korn - Life Is Peachy [1996]",
-        "info": ""
+        "artist": "Korn",
+        "album": "Life Is Peachy",
+        "year": "1996"
     },
-    "Korn-FollowTheLeader-1998": {
-        "name": "Korn - Follow the Leader [1998]",
-        "info": ""
+    "Korn-FollowtheLeader-1998": {
+        "artist": "Korn",
+        "album": "Follow the Leader",
+        "year": "1998"
     }
 }

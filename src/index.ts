@@ -5,11 +5,17 @@ $.getJSON('resources/albums.json', (data) => {
         
         const img = document.createElement('img');
         const text = document.createElement('div');
-        const info = data[key].info;
+        const path = 'resources/albums/' + key;
+        const details = data[key];
+        const detailsHTML = details.artist + ' - <b><i>' + details.album + '</b></i> - ' + details.year;
+        $.get(path + '/info.html', (data) => {
+            text.innerHTML = detailsHTML + '<br><br>' + data;
+        });
+
         img.className = 'cover';
-        img.src = 'resources/albums/' + key + '/cover.jpg';
+        img.src = path + '/cover.jpg';
         text.className = 'text';
-        text.innerText = info;
+        
         text.hidden = true;
         $(div).append([img, text]);
         $([div, img, text]).addClass('inactive');
@@ -19,6 +25,10 @@ $.getJSON('resources/albums.json', (data) => {
                 $(text).on('animationend', (_animShowEv) => {
                     $(document).on('click', (_docEv) => {
                         $([div, img, text]).removeClass('active').addClass('inactive');
+
+                        const blur = $('.blur');
+                        $('.inner').append(blur.children());
+                        blur.remove();
 
                         $(text).on('animationend', (_animHideEv) => {
                             $(text).hide();
@@ -33,6 +43,20 @@ $.getJSON('resources/albums.json', (data) => {
 
                 $([div, img, text]).removeClass('inactive').addClass('active');
                 $(text).show();
+
+                const inner = $('.inner');
+                const blur = document.createElement('div');
+                var inactiveChildren: Element[] = [];
+                inner[0].childNodes.forEach((node, _i, _list) => {
+                    if (!$(node).hasClass('active')) {
+                        inactiveChildren.push(node as Element);
+                    }
+                });
+
+                blur.className = 'blur';
+                blur.setAttribute('style', inner[0].style.cssText);
+                blur.append(...inactiveChildren);
+                $(blur).insertBefore(inner.first());
             }
         });
 

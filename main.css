@@ -54,9 +54,13 @@ a.tab {
 }
 
 .album.active {
+    position: absolute;
     width: 500px;
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
     transform: scale(1.1);
     transition: width .5s;
+    z-index: 2;
 }
 
 .cover {
@@ -69,6 +73,7 @@ a.tab {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     font-size: small;
+    overflow: hidden;
 }
 
 .text.active {
@@ -87,4 +92,13 @@ a.tab {
 @keyframes fadeOut {
     0% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+.blur {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    filter: blur(8px);
+    pointer-events: none;
 }
